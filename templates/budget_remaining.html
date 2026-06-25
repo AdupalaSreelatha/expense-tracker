@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Remaining</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Budget Remaining</h2>
+
+    <p><b>Monthly Budget:</b> ₹{{ monthly_budget }}</p>
+
+    <p><b>Total Expenses:</b> ₹{{ total }}</p>
+
+    <p><b>Remaining Budget:</b> ₹{{ remaining }}</p>
+
+    <br>
+
+    <a href="/dashboard">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set Budget</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Set Monthly Budget</h2>
+
+    <form method="POST">
+
+        <input
+            type="number"
+            name="amount"
+            placeholder="Enter Monthly Budget"
+            required>
+
+        <button type="submit">
+            Save Budget
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/clear_budget">
+        <button style="background:#ef4444;">
+            Clear Budget
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Alert</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Budget Status</h2>
+
+    {% if alert %}
+
+        <div class="error">
+            ⚠️ Budget Exceeded!
+        </div>
+
+        <p>Budget: ₹{{ monthly_budget }}</p>
+        <p>Spent: ₹{{ total }}</p>
+
+    {% else %}
+
+        <div style="
+        background:#22c55e;
+        color:white;
+        padding:10px;
+        border-radius:8px;
+        text-align:center;">
+            ✅ You are within budget.
+        </div>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/dashboard">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+</html>

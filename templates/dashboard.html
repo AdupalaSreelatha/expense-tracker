@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker Dashboard</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="dashboard">
+
+<h1> Customer Dashboard</h1>
+<p>Expense & Budget Management System</p>
+
+<!-- Budget Summary -->
+
+<!-- Budget Summary -->
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Monthly Budget</h3>
+        <div class="amount">
+            ₹{{ monthly_budget }}
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Total Expenses</h3>
+        <div class="amount">
+            ₹{{ total_expenses }}
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Budget Remaining</h3>
+        <div class="amount">
+            ₹{{ budget_remaining }}
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Monthly Savings</h3>
+        <div class="amount">
+            ₹{{ savings }}
+        </div>
+    </div>
+
+</div>
+<!-- Budget Alert -->
+
+{% if total_expenses > monthly_budget and monthly_budget > 0 %}
+
+<div class="alert-box" style="background:#ef4444;">
+    ⚠️ Budget Exceeded!
+    You have spent ₹{{ total_expenses }}
+    out of ₹{{ monthly_budget }}
+</div>
+
+{% else %}
+
+<div class="alert-box" style="background:#22c55e;">
+    ✅ You are within your budget limit.
+</div>
+
+{% endif %}
+
+<!-- Expense Management -->
+
+<h2 class="section-title">Expense Management</h2>
+
+<div class="menu-container">
+
+    <a href="/add_expense" class="menu-card">
+        ➕ Add Expense
+    </a>
+
+    <a href="/expenses" class="menu-card">
+        📋 View Expenses
+    </a>
+
+    <a href="/expenses" class="menu-card">
+        ✏️ Edit Expense
+    </a>
+
+    <a href="/expenses" class="menu-card">
+        🗑️ Delete Expense
+    </a>
+
+</div>
+
+<!-- Budget Management -->
+
+<h2 class="section-title">Budget Management</h2>
+
+<div class="menu-container">
+
+    <a href="/set_budget" class="menu-card">
+        💰 Set Monthly Budget
+    </a>
+
+    <a href="/budget_remaining" class="menu-card">
+        📊 Budget Remaining
+    </a>
+
+    <a href="/budget_alert" class="menu-card">
+        ⚠️ Budget Exceeded Alert
+    </a>
+
+    <a href="/savings" class="menu-card">
+        🎯 Saving Cost
+    </a>
+
+</div>
+
+<h2 class="section-title">Reports</h2>
+
+<div class="menu-container">
+
+    <a href="/daily_report" class="menu-card">
+        📅 Daily Expenses
+    </a>
+
+    <a href="/monthly_report" class="menu-card">
+        🗓️ Monthly Expenses
+    </a>
+
+    <a href="/yearly_report" class="menu-card">
+        📈 Yearly Expenses
+    </a>
+
+</div>
+
+<br>
+
+<a href="/logout" class="menu-card logout">
+    🚪 Logout
+</a>
+</div>
+
+</body>
+</html>
